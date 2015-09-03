@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'haml-rails'
+gem 'chart-js-rails'
 
 group :development, :test do
   gem 'byebug'
