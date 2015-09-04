@@ -5,7 +5,7 @@ class TemperatureReadingsController < ApplicationController
   end
 
   def create
-    TemperatureReaing.create(params[:temperature])
+    TemperatureReading.create(temperature: params[:temperature])
     render nothing: true
   end
 end
