@@ -12,13 +12,25 @@ describe TemperatureReadingsController do
   describe 'POST create' do
     let(:temp)   { 70 }
     let(:params) {{ temperature: temp }}
-    before { post :create, params }
-    it 'responds with a 200' do
-      expect(response.status).to eq(200)
+
+    context 'posting' do
+      before { post :create, params }
+      it 'responds with a 200' do
+        expect(response.status).to eq(200)
+      end
+      it 'creates a temperature reading' do
+        expect(TemperatureReading.last.temperature).to eq(temp)
+      end
     end
-    it 'creates a temperature reading' do
-      expect(TemperatureReading.last.temperature).to eq(temp)
-    end
+
+    #context 'works via a curl request' do
+      #it 'works' do
+        #request.host = 'localhost:3000'
+        #curl = "curl -X POST -d 'temperature_reading[temperature]=68' #{temperature_readings_url(format: 'json')}"
+        #system curl
+        #expect(TemperatureReading.last.temperature).to eq(68)
+      #end
+    #end
   end
 
 end

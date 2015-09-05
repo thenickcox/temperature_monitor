@@ -4,7 +4,13 @@ class TemperatureReadingsController < ApplicationController
   end
 
   def create
-    TemperatureReading.create(temperature: params[:temperature])
-    render nothing: true
+    TemperatureReading.create(temperature: params[:temperature_reading][:temperature])
+    render json: { status: 200 }
+  end
+
+  private
+
+  def temperature_params
+    params.require(:temperature_reading).permit(:temperature)
   end
 end
