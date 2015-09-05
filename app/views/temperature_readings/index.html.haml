@@ -1,21 +1,22 @@
 .container
-  %h1
-    = @last_temp.temperature
-    %small= @last_temp.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%l:%M %p")
+  .temp
+    %h1
+      = @pres.current_temperature
+      %small= @pres.formatted_time(@pres.last_reading)
 
   %canvas#canvas
 
 :javascript
   $(document).ready(function(){
     var data = {
-      labels: #{@temperatures.map { |t| t.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%l:%M %p") }},
+      labels: #{@pres.graph_temperatures.map { |temp| @pres.formatted_time(temp) } },
       datasets: [
         {
           fillColor : "rgba(220,220,220,0.5)",
           strokeColor : "rgba(220,220,220,1)",
           pointColor : "rgba(220,220,220,1)",
           pointStrokeColor : "#fff",
-          data: #{@temperatures.reverse.collect(&:temperature)}
+          data: #{@pres.graph_temperatures.reverse.collect(&:temperature)}
         }
       ]
     }

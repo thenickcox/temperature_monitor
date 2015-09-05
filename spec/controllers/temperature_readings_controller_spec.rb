@@ -4,9 +4,8 @@ describe TemperatureReadingsController do
   let!(:temp) { TemperatureReading.create(temperature: 68.0) }
   describe 'GET index' do
     before { get :index }
-    it 'sets the ivars' do
-      expect(assigns[:last_temp]).to eq(temp)
-      expect(assigns[:temperatures]).to eq([temp])
+    it 'instantiates the presenter' do
+      expect(assigns[:pres]).to be_an_instance_of(TemperaturePresenter)
     end
   end
 

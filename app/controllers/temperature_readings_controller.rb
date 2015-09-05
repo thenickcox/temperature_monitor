@@ -1,7 +1,6 @@
 class TemperatureReadingsController < ApplicationController
   def index
-    @last_temp = TemperatureReading.last
-    @temperatures = TemperatureReading.last(25)
+    @pres = TemperaturePresenter.new(TemperatureReading)
   end
 
   def create
