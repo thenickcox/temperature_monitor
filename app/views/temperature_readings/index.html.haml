@@ -8,6 +8,11 @@
   %canvas#canvas
 
 :javascript
+  Chart.defaults.global.scaleFontFamily = "'Gotham SSm A', 'Gotham SSm B', 'sans-serif'";
+  Chart.defaults.global.tooltipFontFamily = "'Gotham SSm A', 'Gotham SSm B', 'sans-serif'";
+  Chart.defaults.global.tooltipFillColor = "rgba(220,220,220,0.85)",
+  Chart.defaults.global.tooltipFontColor = "rgba(100,100,100,0.85)",
+  Chart.defaults.global.scaleLineColor = "rgba(220,220,220,1)";
   $(document).ready(function(){
     var data = {
       labels: #{@pres.graph_temperatures.map { |temp| @pres.formatted_time(temp) } },
