@@ -16,7 +16,7 @@ describe 'homepage', type: :feature do
 
   it 'formats the temperature correctly' do
     small = find('h1 small')
-    expect(small).to have_content('12:00 am')
+    expect(small).to have_content('12:00')
   end
 
 

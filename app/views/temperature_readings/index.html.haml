@@ -1,7 +1,8 @@
 .container
   .temp
     %h1
-      = @pres.current_temperature
+      = @pres.current_temperature.to_i
+      %span> &deg;
       %small= @pres.formatted_time(@pres.last_reading)
 
   %canvas#canvas

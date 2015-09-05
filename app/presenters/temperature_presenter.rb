@@ -13,7 +13,7 @@ class TemperaturePresenter
   end
 
   def formatted_time(temp)
-    temp.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%l:%M %P")
+    temp.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%l:%M")
   end
 
   def graph_temperatures

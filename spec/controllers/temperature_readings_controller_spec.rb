@@ -11,7 +11,7 @@ describe TemperatureReadingsController do
 
   describe 'POST create' do
     let(:temp)   { 70 }
-    let(:params) {{ temperature: temp }}
+    let(:params) {{ temperature_reading: { temperature: temp } }}
 
     context 'posting' do
       before { post :create, params }
