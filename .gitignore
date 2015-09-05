@@ -13,3 +13,4 @@
 /tmp
 
 *.*.sw?
+config/secrets.yml
