@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'haml-rails'
 gem 'chart-js-rails'
+gem 'wisper'
 
 group :development, :test do
   gem 'byebug'
@@ -26,4 +27,5 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'wisper-rspec', require: false
 end
