@@ -8,11 +8,14 @@
   %canvas#canvas
 
 :javascript
-  Chart.defaults.global.scaleFontFamily = "'Gotham SSm A', 'Gotham SSm B', 'sans-serif'";
-  Chart.defaults.global.tooltipFontFamily = "'Gotham SSm A', 'Gotham SSm B', 'sans-serif'";
-  Chart.defaults.global.tooltipFillColor = "rgba(220,220,220,0.85)",
-  Chart.defaults.global.tooltipFontColor = "rgba(100,100,100,0.85)",
-  Chart.defaults.global.scaleLineColor = "rgba(220,220,220,1)";
+  var chartOpts = {
+    scaleFontFamily: "'Gotham SSm A', 'Gotham SSm B', 'sans-serif'",
+    tooltipFontFamily: "'Gotham SSm A', 'Gotham SSm B', 'sans-serif'",
+    tooltipFillColor: "rgba(220,220,220,0.85)",
+    tooltipFontColor: "rgba(100,100,100,0.85)",
+    scaleLineColor: "rgba(220,220,220,1)"
+  };
+
   $(document).ready(function(){
     var data = {
       labels: #{@pres.graph_temperatures.map { |temp| @pres.formatted_time(temp) } },
@@ -22,10 +25,10 @@
           strokeColor : "rgba(220,220,220,1)",
           pointColor : "rgba(220,220,220,1)",
           pointStrokeColor : "#fff",
-          data: #{@pres.graph_temperatures.reverse.collect(&:temperature)}
+          data: #{@pres.graph_temperatures.collect(&:temperature)}
         }
       ]
     }
-    myNewChart = new Chart($("#canvas").get(0).getContext("2d")).Line(data)
+    myNewChart = new Chart($("#canvas").get(0).getContext("2d")).Line(data, chartOpts)
   });
 
