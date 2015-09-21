@@ -1,4 +1,5 @@
 class TemperaturePresenter
+  MINUTE_DIVISOR = 15
 
   def initialize(klass)
     @klass = klass
@@ -17,7 +18,7 @@ class TemperaturePresenter
   end
 
   def graph_temperatures
-    @klass.last(25)
+    @klass.where('id % ? = 0', MINUTE_DIVISOR).last(25)
   end
 
 
